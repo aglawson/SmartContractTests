@@ -23,5 +23,8 @@
     "nyc": "^14.1.1",
     "ts-node": "^10.5.0",
     "typescript": "^4.5.5"
+  },
+  "dependencies": {
+    "@openzeppelin/test-helpers": "^0.5.15"
   }
 }

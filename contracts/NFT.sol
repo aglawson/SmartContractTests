@@ -7,8 +7,20 @@ contract NFT is ERC721A {
         return _numberMinted(owner);
     }
 
+    function totalMinted() public view returns (uint256) {
+        return totalSupply();
+    }
+
+    // function getAux(address owner) public view returns (uint64) {
+    //     return getAux(owner);
+    // }
+
     function baseURI() public view returns (string memory) {
         return _baseURI();
+    }
+
+    function exists(uint256 tokenId) public view returns (bool) {
+        return _exists(tokenId);
     }
 
     function safeMint(address to, uint256 quantity) public {
