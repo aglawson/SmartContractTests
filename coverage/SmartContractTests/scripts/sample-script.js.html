@@ -24,12 +24,12 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/9</span>
+                <span class='fraction'>0/0</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
                 <span class='fraction'>0/0</span>
             </div>
@@ -38,14 +38,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/3</span>
+                <span class='fraction'>0/0</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/9</span>
+                <span class='fraction'>0/0</span>
             </div>
         
             
@@ -93,7 +93,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -104,54 +103,55 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// We require the Hardhat Runtime Environment explicitly here. This is optional
-// but useful for running the script in a standalone fashion through `node &lt;script&gt;`.
-//
-// When running the script with `npx hardhat run &lt;script&gt;` you'll find the Hardhat
-// Runtime Environment's members available in the global scope.
-const hre = <span class="cstat-no" title="statement not covered" >require("hardhat");</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// // We require the Hardhat Runtime Environment explicitly here. This is optional
+// // but useful for running the script in a standalone fashion through `node &lt;script&gt;`.
+// //
+// // When running the script with `npx hardhat run &lt;script&gt;` you'll find the Hardhat
+// // Runtime Environment's members available in the global scope.
+// const hre = require("hardhat");
 &nbsp;
-async function <span class="fstat-no" title="function not covered" >main(</span>) {
-  // Hardhat always runs the compile task when running scripts with its command
-  // line interface.
-  //
-  // If this script is run directly using `node` you may want to call compile
-  // manually to make sure everything is compiled
-  // await hre.run('compile');
+// async function main() {
+//   // Hardhat always runs the compile task when running scripts with its command
+//   // line interface.
+//   //
+//   // If this script is run directly using `node` you may want to call compile
+//   // manually to make sure everything is compiled
+//   // await hre.run('compile');
 &nbsp;
-  // We get the contract to deploy
-  const Greeter = <span class="cstat-no" title="statement not covered" >await hre.ethers.getContractFactory("Greeter");</span>
-  const greeter = <span class="cstat-no" title="statement not covered" >await Greeter.deploy("Hello, Hardhat!");</span>
+//   // We get the contract to deploy
+//   const Greeter = await hre.ethers.getContractFactory("Greeter");
+//   const greeter = await Greeter.deploy("Hello, Hardhat!");
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  await greeter.deployed();</span>
+//   await greeter.deployed();
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  console.log("Greeter deployed to:", greeter.address);</span>
-}
+//   console.log("Greeter deployed to:", greeter.address);
+// }
 &nbsp;
-// We recommend this pattern to be able to use async/await everywhere
-// and properly handle errors.
-<span class="cstat-no" title="statement not covered" >main()</span>
-  .then(<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >process.exit(0))</span>
-  .catch(<span class="fstat-no" title="function not covered" >(e</span>rror) =&gt; {
-<span class="cstat-no" title="statement not covered" >    console.error(error);</span>
-<span class="cstat-no" title="statement not covered" >    process.exit(1);</span>
-  });
+// // We recommend this pattern to be able to use async/await everywhere
+// // and properly handle errors.
+// main()
+//   .then(() =&gt; process.exit(0))
+//   .catch((error) =&gt; {
+//     console.error(error);
+//     process.exit(1);
+//   });
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -159,7 +159,7 @@ async function <span class="fstat-no" title="function not covered" >main(</span>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Fri Feb 25 2022 17:43:08 GMT-0800 (Pacific Standard Time)
+                at Wed Mar 02 2022 18:22:20 GMT-0800 (Pacific Standard Time)
             </div>
         </div>
         <script src="../../prettify.js"></script>

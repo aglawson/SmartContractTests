@@ -406,8 +406,8 @@
       ]
     },
     "/Users/adrianlawson/Documents/GitHub/SmartContractTests/contracts/NFT.sol": {
-      "lastModificationDate": 1645835544239,
-      "contentHash": "e97b220828e81f4232aa68cbf0fafd99",
+      "lastModificationDate": 1646080096633,
+      "contentHash": "96aaaec3f7f0f4c78f9f16c095b29e87",
       "sourceName": "contracts/NFT.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -629,6 +629,152 @@
       ],
       "artifacts": [
         "console"
+      ]
+    },
+    "/Users/adrianlawson/Documents/GitHub/SmartContractTests/contracts/ERC721ReceiverMock.sol": {
+      "lastModificationDate": 1646082318213,
+      "contentHash": "09757d3b753ca71ed964e23dc633b085",
+      "sourceName": "contracts/ERC721ReceiverMock.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IERC721Receiver.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.4"
+      ],
+      "artifacts": [
+        "ERC721ReceiverMock"
+      ]
+    },
+    "/Users/adrianlawson/Documents/GitHub/SmartContractTests/contracts/721Template.sol": {
+      "lastModificationDate": 1646247870452,
+      "contentHash": "edf92d309ac02095ae217a9b31306999",
+      "sourceName": "contracts/721Template.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./ERC721A.sol",
+        "./ReentrancyGuard.sol",
+        "./MerkleProof.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Template721"
+      ]
+    },
+    "/Users/adrianlawson/Documents/GitHub/SmartContractTests/contracts/ReentrancyGuard.sol": {
+      "lastModificationDate": 1646236407449,
+      "contentHash": "80b1e36ed1d6740946c3858e4b5165da",
+      "sourceName": "contracts/ReentrancyGuard.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ReentrancyGuard"
+      ]
+    },
+    "/Users/adrianlawson/Documents/GitHub/SmartContractTests/contracts/MerkleProof.sol": {
+      "lastModificationDate": 1646236396798,
+      "contentHash": "f1c42c728cefd511666c29dce9e4f4d3",
+      "sourceName": "contracts/MerkleProof.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "MerkleProof"
       ]
     }
   }
