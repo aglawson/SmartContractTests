@@ -22,9 +22,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">25% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>4/4</span>
+                <span class='fraction'>1/4</span>
             </div>
         
             
@@ -45,7 +45,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>4/4</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
@@ -54,7 +54,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -67,57 +67,36 @@
 <a name='L9'></a><a href='#L9'>9</a>
 <a name='L10'></a><a href='#L10'>10</a>
 <a name='L11'></a><a href='#L11'>11</a>
-<a name='L12'></a><a href='#L12'>12</a>
-<a name='L13'></a><a href='#L13'>13</a>
-<a name='L14'></a><a href='#L14'>14</a>
-<a name='L15'></a><a href='#L15'>15</a>
-<a name='L16'></a><a href='#L16'>16</a>
-<a name='L17'></a><a href='#L17'>17</a>
-<a name='L18'></a><a href='#L18'>18</a>
-<a name='L19'></a><a href='#L19'>19</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { task } from "hardhat/config";
-import "@nomiclabs/hardhat-waffle";
-&nbsp;
-// This is a sample Hardhat task. To learn how to create your own go to
-// https://hardhat.org/guides/create-task.html
-task("accounts", "Prints the list of accounts", <span class="fstat-no" title="function not covered" >async </span>(args, hre) =&gt; {
-  //const accounts = await hre.ethers.getSigners();
-&nbsp;
-  // for (const account of accounts) {
-  //   console.log(await account.address);
-  // }
-});
-&nbsp;
-// You need to export an object to set up your config
-// Go to https://hardhat.org/config/ to learn more
-&nbsp;
-export default {
-  solidity: "0.8.4"
-};</pre></td></tr></table></pre>
+<a name='L12'></a><a href='#L12'>12</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">0</span>
+<span class="cline-any cline-no">0</span>
+<span class="cline-any cline-no">0</span>
+<span class="cline-any cline-no">0</span>
+<span class="cline-any cline-no">0</span>
+<span class="cline-any cline-no">0</span>
+<span class="cline-any cline-no">0</span>
+<span class="cline-any cline-no">0</span>
+<span class="cline-any cline-no">0</span>
+<span class="cline-any cline-no">0</span>
+<span class="cline-any cline-no">0</span>
+<span class="cline-any cline-no">0</span></td><td class="text"><pre class="prettyprint lang-js">Cannot read property 'start' of undefined
+TypeError: Cannot read property 'start' of undefined
+    at /Users/adrianlawson/Documents/GitHub/SmartContractTests/node_modules/istanbul-reports/lib/html/annotator.js:53:31
+    at Array.forEach (<anonymous>)
+    at annotateStatements (/Users/adrianlawson/Documents/GitHub/SmartContractTests/node_modules/istanbul-reports/lib/html/annotator.js:49:33)
+    at annotateSourceCode (/Users/adrianlawson/Documents/GitHub/SmartContractTests/node_modules/istanbul-reports/lib/html/annotator.js:239:9)
+    at HtmlReport.onDetail (/Users/adrianlawson/Documents/GitHub/SmartContractTests/node_modules/istanbul-reports/lib/html/index.js:401:33)
+    at Visitor.<computed> [as onDetail] (/Users/adrianlawson/Documents/GitHub/SmartContractTests/node_modules/istanbul-lib-report/lib/tree.js:34:30)
+    at ReportNode.Node.visit (/Users/adrianlawson/Documents/GitHub/SmartContractTests/node_modules/istanbul-lib-report/lib/tree.js:114:17)
+    at /Users/adrianlawson/Documents/GitHub/SmartContractTests/node_modules/istanbul-lib-report/lib/tree.js:118:15
+    at Array.forEach (<anonymous>)
+    at ReportNode.Node.visit (/Users/adrianlawson/Documents/GitHub/SmartContractTests/node_modules/istanbul-lib-report/lib/tree.js:117:24)</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Wed Mar 02 2022 18:22:20 GMT-0800 (Pacific Standard Time)
+                at Wed Mar 02 2022 19:32:54 GMT-0800 (Pacific Standard Time)
             </div>
         </div>
         <script src="../prettify.js"></script>

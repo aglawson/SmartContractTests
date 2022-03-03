@@ -144,3 +144,109 @@ context('transfers', async function () {
   });
 
 });
+
+describe('Template Contract', function () {
+  beforeEach(async function () {
+    const [owner, addr1, addr2] = await ethers.getSigners();
+    this.owner = owner;
+    this.addr1 = addr1;
+    this.addr2 = addr2;
+
+    this.Template721 = await ethers.getContractFactory('Template721');
+    this.t721 = await this.Template721.deploy('Test', 'TEST', 2, 1, 100, 20, owner.address, 'ipfs.io/hashvalue/token_id=');
+    //this.ERC721Receiver = await ethers.getContractFactory('ERC721ReceiverMock');
+    this.startTokenId = this.t721.startTokenId ? (await this.t721.startTokenId()).toNumber() : 0;
+
+    await this.t721.deployed();
+  });
+
+  context('with no minted tokens', async function () {
+    it('verifies there are 0 minted tokens', async function () {
+      const totalSupply = await this.t721.totalSupply();
+      expect(totalSupply).to.equal(0);
+    });
+  });
+
+  context('in default sale state', async function () {
+    it('does not allow any purchases', async function () {
+      await expect(this.t721['mint(uint256,address,bytes32[])'](1, this.addr1.address, [])).to.be.revertedWith('Sale is closed');
+    });
+
+    it('does allow owner to mint', async function () {
+      const mintTo = await this.t721['mintTo(uint256,address)'](1, this.addr1.address);
+      await expect(await this.t721.balanceOf(this.addr1.address)).to.equal(1);
+    });
+
+    it('does not allow non owner to mint for free', async function () {
+      await expect(this.t721.connect(this.addr1)['mintTo(uint256,address)'](1, this.addr1.address)).to.be.revertedWith('Ownable: caller is not the owner');
+    });
+
+    it('has a false saleOpen value by default', async function () {
+      const newState = await this.t721.saleOpen();
+      await expect(newState).to.equal(false);
+    });
+
+    it('allows owner to change sale state', async function () {
+      const stateChange = await this.t721.connect(this.owner)['setSaleState(bool)'](true);
+      const newState = await this.t721.saleOpen();
+      await expect(newState).to.equal(true);
+    });
+
+    it('does not allow non owner to change sale state', async function () {
+      await expect(this.t721.connect(this.addr1)['setSaleState(bool)'](true)).to.be.revertedWith('Ownable: caller is not the owner');
+    });
+
+    it('has a true whitelistOnly value by default', async function () {
+      const defaultState = await this.t721.whitelistOnly();
+      await expect(defaultState).to.equal(true);
+    });
+
+    it('allows owner to change whitelistOnly state', async function () {
+      const stateChange = await this.t721.connect(this.owner)['setWhitelistState(bool)'](false);
+      const newState = await this.t721.saleOpen();
+      await expect(newState).to.equal(false);
+    });
+
+    it('does not allow non owner to change whitelistOnly state', async function () {
+      await expect(this.t721.connect(this.addr1)['setWhitelistState(bool)'](false)).to.be.revertedWith('Ownable: caller is not the owner');
+    });
+  });
+
+  context('public mint', async function () {
+    this.beforeEach(async function () {
+      await this.t721.connect(this.owner)['setWhitelistState(bool)'](false);
+      await this.t721.connect(this.owner)['setSaleState(bool)'](true);
+    });
+
+    it('allows non-whitelisted address to mint', async function () {
+      await this.t721.connect(this.addr1)['mint(uint256,address,bytes32[])'](1,this.addr1.address,[], {value: 2});
+      // console.log('balance', await this.t721.balanceOf(this.addr1.address));
+      await expect(await this.t721.balanceOf(this.addr1.address)).to.equal(1);
+    });
+
+    it('requires correct amount of eth', async function () {
+      await expect(this.t721.connect(this.addr1)['mint(uint256,address,bytes32[])'](1,this.addr1.address,[],{value: 1})).to.be.revertedWith('Incorrect amount of ETH sent');
+    });
+
+    it('does not accept value higher than price', async function () {
+      await expect(this.t721.connect(this.addr1)['mint(uint256,address,bytes32[])'](1,this.addr1.address,[],{value: 3})).to.be.revertedWith('Incorrect amount of ETH sent');
+    });
+
+    it('mints multiple', async function () {
+      await this.t721.connect(this.addr1)['mint(uint256,address,bytes32[])'](20,this.addr1.address,[], {value: 40});
+      await expect(await this.t721.balanceOf(this.addr1.address)).to.equal(20);
+    });
+
+    it('does not allow more than 20 per tx', async function () {
+      await expect(this.t721.connect(this.addr1)['mint(uint256,address,bytes32[])'](21,this.addr1.address,[], {value: 42})).to.be.revertedWith('Exceeds maximum amount per purchase');
+    })
+
+    it('does not allow max supply to be exceeded', async function () {
+      await this.t721.connect(this.owner).mintTo(50,this.addr2.address);
+      await this.t721.connect(this.owner).mintTo(50,this.addr2.address);
+      await expect(this.t721.connect(this.addr1)['mint(uint256,address,bytes32[])'](1,this.addr1.address,[], {value: 2})).to.be.revertedWith('Not enough left');
+    });
+  });
+
+
+});
