@@ -12,7 +12,7 @@ describe('ERC721A', function () {
     this.ERC721A = await ethers.getContractFactory('NFT');
     this.erc721a = await this.ERC721A.deploy('Test', 'TEST');
     this.ERC721Receiver = await ethers.getContractFactory('ERC721ReceiverMock');
-    this.startTokenId = this.erc721a.startTokenId ? (await this.erc721a.startTokenId()).toNumber() : 0;
+    this.startTokenId = 0;
 
     await this.erc721a.deployed();
   });
@@ -155,7 +155,7 @@ describe('Template Contract', function () {
     this.Template721 = await ethers.getContractFactory('Template721');
     this.t721 = await this.Template721.deploy('Test', 'TEST', 2, 1, 100, 20, owner.address, 'ipfs.io/hashvalue/token_id=');
     //this.ERC721Receiver = await ethers.getContractFactory('ERC721ReceiverMock');
-    this.startTokenId = this.t721.startTokenId ? (await this.t721.startTokenId()).toNumber() : 0;
+    this.startTokenId = 0;
 
     await this.t721.deployed();
   });
